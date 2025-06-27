@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://digfok0wm1fe2"]
+
+[ext_resource type="Script" uid="uid://dxejoy7btf1fl" path="res://Script/TestScript/TestScript.cs" id="1_gcpti"]
+
+[node name="TestMain" type="Node2D"]
+script = ExtResource("1_gcpti")

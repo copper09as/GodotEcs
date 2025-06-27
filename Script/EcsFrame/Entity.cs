@@ -5,7 +5,7 @@ public struct Entity
 {
     public int id;
     public int version;
-    public bool active;
+    public bool active = true;
     public Entity(int id, int version)
     {
         this.id = id;

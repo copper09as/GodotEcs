@@ -8,11 +8,12 @@ public partial class World
     private int _nextVersion = 1;
     private readonly Dictionary<Type, IComponentStore> _stores = new Dictionary<Type, IComponentStore>();//组件表
     private readonly List<EcsSystem> _system = new List<EcsSystem>();//系统列表
-    private readonly List<Entity> _entities = new List<Entity>();//实体列表
+    public readonly List<Entity> _entities = new List<Entity>();//实体列表
 
     public World()
     {
-        //初始化系统
+        _system.Add(new TransformSystem());
+        _system.Add(new MovementSystem());
     }
     public Entity CreateEntity()
     {
@@ -36,7 +37,7 @@ public partial class World
     {
         return ref GetStore<T>().Get(entity);
     }
-    private ComponentStore<T> GetStore<T>() where T : struct
+    public ComponentStore<T> GetStore<T>() where T : struct
     {
         var type = typeof(T);
         if (!_stores.TryGetValue(type, out var store))

@@ -20,6 +20,11 @@ public struct Componentview<T>
     {
         return ++index < count;
     }
+    public bool IsMoveNext()
+    {
+
+        return index < count;
+    }
     public ref T Current => ref dense[index];
     public Entity Entity => entities[index];
     
